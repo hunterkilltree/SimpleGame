@@ -1,5 +1,5 @@
 from Startup import *
-
+import time
 
 class Car:
     def __init__(self):
@@ -56,15 +56,6 @@ class Car:
             while ( round(self.angle) != 90):
                 print(self.angle)
                 self.angle += 0.5 * 1
-            print("ok 1")
-
-            # if self.angle >= 360:
-            #     self.angle = 0
-            #
-            # while True:
-            #     if (self.angle == 90):
-            #         break
-            #     self.angle += 0.5 * 1
 
         if self.rotate_right:
             if (self.angle <= 0):
@@ -74,17 +65,8 @@ class Car:
             while round(self.angle) != 270:
                 print(self.angle)
                 self.angle -= 0.5 * 1
+
             print("ok 2")
-
-            # if self.angle <= 0:
-            #     self.angle = 360
-            #
-            # while True:
-            #     if self.angle == 270:
-            #         break
-            #     self.angle -= 0.5 * 1
-
-
 
     def move(self):
         if self.forward:
