@@ -2,7 +2,7 @@ import socket
 from  _thread import *
 import sys
 
-server = "192.168.1.6"
+server = "192.168.1.4"
 port = 5555 # use this port for creating connection
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # type of connection,
@@ -14,11 +14,10 @@ except socket.error as e :
 
 
 s.listen(2) # if we leave it blank, it allow unlimited to this server
-
 print("Waiting for a connection, Server started")
 
 def threaded_client(conn): # by using thread, this one is running on background
-
+    conn.send(str.encode("Connected"))
     reply = ""
     while True:
         try:
@@ -34,6 +33,9 @@ def threaded_client(conn): # by using thread, this one is running on background
             conn.sendall(str.encode(reply))
         except:
             break
+
+    print("Connect lost")
+    conn.close()
 
 
 while True:
